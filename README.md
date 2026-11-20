@@ -18,3 +18,11 @@ It represents the total number of intermediate map output partitions fetched and
 It is calculated as: `Number of Map Tasks × Number of Reduce Tasks`.
 - Run 1 (default): `9 × 3 = 27`
 - Run 2 (`-numReduceTasks 6`): `9 × 6 = 54`
+
+## Exercise 2
+
+**Q1. Is your change in the mapper or in the reducer?**
+The change is in the **mapper**. Words must be normalized (lowercased and stripped of trailing commas and dots) before the shuffle-and-sort phase so that variations like `"The"`, `"the,"`, and `"the."` map to the exact same key (`"the"`) and are grouped together by the reducer.
+
+**Q2. Code**
+See [`mapper_ex2.py`](./mapper_ex2.py) in this repository.
