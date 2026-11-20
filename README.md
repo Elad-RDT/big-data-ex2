@@ -26,3 +26,14 @@ The change is in the **mapper**. Words must be normalized (lowercased and stripp
 
 **Q2. Code**
 See [`mapper_ex2.py`](./mapper_ex2.py) in this repository.
+
+## Exercise 3
+
+**Q1. Is your change in the mapper or in the reducer?**
+The change is in the **reducer**. Finding the top 3 most frequent words requires knowing the total aggregated count of every word first, which is only available in the reducer. We also run the job with `-numReduceTasks 1` so that a single reducer computes the global top 3 instead of each partition returning its own top 3.
+
+**Q2. Code**
+See [`reducer_ex3.py`](./reducer_ex3.py) (run together with [`mapper_ex2.py`](./mapper_ex2.py)) in this repository.
+
+**Q3. Output**
+![Exercise 3 Output](./ex3_output.png)
